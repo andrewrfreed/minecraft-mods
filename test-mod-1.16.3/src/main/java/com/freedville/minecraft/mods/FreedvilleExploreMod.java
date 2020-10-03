@@ -42,6 +42,10 @@ public class FreedvilleExploreMod
         MinecraftForge.EVENT_BUS.register(this);
         
         RegistryHandler.init();
+        
+        //Add a random drop??
+        RandomDropEvent randomDropEvent = new RandomDropEvent();
+		MinecraftForge.EVENT_BUS.register(randomDropEvent);
     }
 
     private void setup(final FMLCommonSetupEvent event)
