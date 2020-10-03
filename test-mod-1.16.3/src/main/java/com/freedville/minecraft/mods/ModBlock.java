@@ -1,8 +1,6 @@
 package com.freedville.minecraft.mods;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 
 public class ModBlock extends Block {
