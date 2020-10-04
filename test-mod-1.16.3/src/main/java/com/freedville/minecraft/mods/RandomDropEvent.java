@@ -19,6 +19,7 @@ import java.util.Random;
 public class RandomDropEvent {
 
 	private Random random = new Random();
+	private RandomItemStackSelector itemSelector = new RandomItemStackSelector();
 	
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -46,8 +47,8 @@ public class RandomDropEvent {
 			dropRandomItems(event.getEntity(), Items.DIAMOND, "LivingAttackEvent");
 		}
 		else {
-			//Those animals are vicious to each other!!!
-			LOGGER.info("LivingAttackEvent but it wasn't the player!");
+			//Those animals are vicious to each other!!! You get this message all the time!
+			//LOGGER.info("LivingAttackEvent but it wasn't the player!");
 		}
 	}    
 
@@ -58,20 +59,21 @@ public class RandomDropEvent {
 			dropRandomItems(event.getEntity(), Items.DIAMOND, "LivingDeathEvent");
 		}
 		else {
-			//Those animals are vicious to each other!!!
-			LOGGER.info("LivingDeathEvent but it wasn't the player!");
+			//Those animals are vicious to each other!!! You get this message a lot too!
+			//LOGGER.info("LivingDeathEvent but it wasn't the player!");
 		}
 	}
     
-	@SubscribeEvent //Setting down the crafting table made this fire, but it doesn't actually drop diamonds!
+	@SubscribeEvent
 	//This doesn't fire when you destroy blocks - that is BlockEvent.BreakEvent
+	//It actually fires when you set an item down, like placing a crafting table or any other block
 	public void dropDiamondsOnDestroyItem(PlayerDestroyItemEvent event){
 		Entity entity = event.getEntity();
 		LOGGER.info("PlayerDestroyItemEvent Entity " + entity.getEntityString());
 
 		//It appears these items go directly to the player.
 		//That may be because on setting down the crafting table, the entity is the player.
-		//I suspect "PlayerDestroyItemEvent" may contain a bug - I don't know what's being destroyed!
+		//I suspect "PlayerDestroyItemEvent" is poorly named - I don't know what's being destroyed!
 		dropRandomItems(event.getEntity(), Items.DIAMOND, "PlayerDestroyItemEvent");
 	}
 	
@@ -82,13 +84,16 @@ public class RandomDropEvent {
 	@SubscribeEvent 
 	public void playerThrowsDiamondsOnBlockBreak(BlockEvent.BreakEvent event){
 		LOGGER.info("BreakEvent  " + event.getResult());
-		ItemStack itemStackIn = new ItemStack(Items.DIAMOND, 4);
-		event.getPlayer().dropItem(itemStackIn, true);
+		//ItemStack itemStackIn = new ItemStack(Items.DIAMOND, 4);
+		//event.getPlayer().dropItem(itemStackIn, true);
+		//LOGGER.info("Player should have thrown four diamonds!");
 		
-		//The block that we broke
-		//event.getState().getBlock();
-
-		LOGGER.info("Player should have thrown four diamonds!");
+		String blockType = event.getState().getBlock().getTranslationKey();
+		ItemStack randomDrop = itemSelector.getItemStackForType(blockType);
+		event.getPlayer().dropItem(randomDrop, true);
+		
+		//Actually it looks like the player throws this type
+		LOGGER.info(blockType + " will now drop " + randomDrop.toString());
 	}
 
 }
