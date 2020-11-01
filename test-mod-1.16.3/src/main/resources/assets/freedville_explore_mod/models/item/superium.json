@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+      "end": "freedville_explore_mod:items/superium",
+      "side": "freedville_explore_mod:items/superium"
+  }
+}
