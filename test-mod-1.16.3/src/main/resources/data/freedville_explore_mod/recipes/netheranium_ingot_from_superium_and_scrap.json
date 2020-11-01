@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"aba",
+		"bab",
+		"aba"
+	],
+	"key": {
+		"a": {
+			"item": "freedville_explore_mod:superium"
+		},
+		"b": {
+			"item": "freedville_explore_mod:netheranium_scrap"
+		}
+	},
+	"result": {
+		"item": "freedville_explore_mod:netheranium_ingot",
+		"count": 1
+	}
+}

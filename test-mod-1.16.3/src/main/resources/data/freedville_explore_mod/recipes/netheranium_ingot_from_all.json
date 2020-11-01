@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"aba",
+		"bcb",
+		"aba"
+	],
+	"key": {
+		"a": {
+			"item": "minecraft:netherite_scrap"
+		},
+		"b": {
+			"item": "freedville_explore_mod:netheranium_scrap"
+		},
+		"c": {
+			"item": "minecraft:netherite_ingot"
+		}
+	},
+	"result": {
+		"item": "freedville_explore_mod:netheranium_ingot",
+		"count": 1
+	}
+}
