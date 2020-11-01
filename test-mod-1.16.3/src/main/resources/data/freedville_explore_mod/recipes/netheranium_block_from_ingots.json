@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"aaa",
+		"aaa",
+		"aaa"
+	],
+	"key": {
+		"a": {
+			"item": "freedville_explore_mod:netheranium_ingot"
+		}
+	},
+	"result": {
+		"item": "freedville_explore_mod:netheranium_block",
+		"count": 1
+	}
+}

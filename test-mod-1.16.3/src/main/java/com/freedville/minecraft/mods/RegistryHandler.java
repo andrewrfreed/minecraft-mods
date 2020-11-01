@@ -28,12 +28,28 @@ public class RegistryHandler {
 				.hardnessAndResistance(10.f, 2000.0f)
 			)
 	);
+    
+    public static final RegistryObject<Block> NETHERANIUM_BLOCK = BLOCKS.register("netheranium_block", () ->
+ 		new Block(
+ 				Block.Properties
+ 				.create(Material.IRON)
+ 				.sound(SoundType.STONE)
+ 				.harvestLevel(4)
+ 				.harvestTool(ToolType.PICKAXE)
+ 				.hardnessAndResistance(10.f, 2000.0f)
+ 			)
+ 	);
 
-
-    // register item
     public static final RegistryObject<Item> SUPERIUM_ITEM = ITEMS.register("superium",
 		() -> new BlockItem(
 				SUPERIUM_BLOCK.get(), 
+				new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)
+			)
+	);
+    
+    public static final RegistryObject<Item> NETHERANIUM_ITEM = ITEMS.register("netheranium_block",
+		() -> new BlockItem(
+				NETHERANIUM_BLOCK.get(), 
 				new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)
 			)
 	);
