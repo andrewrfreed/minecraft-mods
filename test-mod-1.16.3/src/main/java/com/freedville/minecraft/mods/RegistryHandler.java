@@ -17,16 +17,15 @@ public class RegistryHandler {
     // create DeferredRegister object
     public static final DeferredRegister<Item>  ITEMS  = DeferredRegister.create(ForgeRegistries.ITEMS, FreedvilleExploreMod.MODID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FreedvilleExploreMod.MODID);
-
  
     public static final RegistryObject<Block> SUPERIUM_BLOCK = BLOCKS.register("superium", () ->
-	new Block(
-        Block.Properties
-        	.create(Material.IRON)
-        	.sound(SoundType.STONE)
-        	.harvestLevel(4)
-        	.harvestTool(ToolType.PICKAXE)
-        	.hardnessAndResistance(10.f, 2000.0f)
+		new Block(
+				Block.Properties
+				.create(Material.IRON)
+				.sound(SoundType.STONE)
+				.harvestLevel(4)
+				.harvestTool(ToolType.PICKAXE)
+				.hardnessAndResistance(10.f, 2000.0f)
 			)
 	);
 
@@ -75,21 +74,8 @@ public class RegistryHandler {
     	BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         
-        //You cannot create instances of registry entries (e.g. Block) in static initializers.
-//        
-//        //Superium can be placed - but superium items have the wrong resource pack
-//        //  The name is "Air" and the icon is undefined
-//        net.minecraft.item.Item.Properties itemProperties = new Item.Properties().group(ItemGroup.BUILDING_BLOCKS);
-//        net.minecraft.block.AbstractBlock.Properties blockProperties = net.minecraft.block.AbstractBlock.Properties.create(Material.IRON);
-//        
-//        final SuperiumBlock superiumBlock = new SuperiumBlock(blockProperties);
-//        
-//        /* BlockItem */ superiumItem = new BlockItem(superiumBlock, itemProperties);
-//        //superiumItem.setRegistryName(FreedvilleExploreMod.MODID, "superium"); 	
-//        ITEMS.register("superium", () -> superiumItem);
-//        //superiumBlock.setRegistryName(FreedvilleExploreMod.MODID, "superium");
-//        BLOCKS.register("superium", () -> superiumBlock);
-
+        //You cannot create instances of registry entries (e.g. Block) in static initializers. (ie this method)
+        //Be sure you used the DeferredRegister (BLOCKS and ITEMS) above
     }
 
     // register item - copper block - from online example
