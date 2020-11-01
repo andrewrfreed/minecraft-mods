@@ -43,9 +43,13 @@ public class FreedvilleExploreMod
         
         RegistryHandler.init();
         
-        //Add a random drop??
-        RandomDropEvent randomDropEvent = new RandomDropEvent();
-		MinecraftForge.EVENT_BUS.register(randomDropEvent);
+        //Add a random drop - this was fun but we'll disable for now!
+//      RandomDropEvent randomDropEvent = new RandomDropEvent();
+//		MinecraftForge.EVENT_BUS.register(randomDropEvent);
+		
+//		//Playing with Loot Tables - didn't work right some disabled for now
+//		LootTableMod loadTableMod = new LootTableMod();
+//		MinecraftForge.EVENT_BUS.register(loadTableMod);
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -57,7 +61,7 @@ public class FreedvilleExploreMod
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
