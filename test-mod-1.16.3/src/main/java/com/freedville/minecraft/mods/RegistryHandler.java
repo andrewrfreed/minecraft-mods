@@ -85,6 +85,9 @@ public class RegistryHandler {
     }
     
     
+    public static final RegistryObject<NetheraniumPickaxe> NETHERANIUM_PICKAXE = 
+    		ITEMS.register("netheranium_pickaxe", () -> new NetheraniumPickaxe());
+    
     public static void init() {
         // attach DeferredRegister to the event bus
     	BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

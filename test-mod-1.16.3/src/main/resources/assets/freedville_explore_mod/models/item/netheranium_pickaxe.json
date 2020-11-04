@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "freedville_explore_mod:items/netheranium_pickaxe"
+  }
+}
